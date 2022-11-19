@@ -1,0 +1,50 @@
+{% extends 'index.html' %} {% block title %}
+<title>Eshop | Login Page</title>
+{% endblock title %} {% block content %}
+<div class="container-fluid mt-3">
+  <div class="row my-5">
+    <div class="col-md-2 col-1"></div>
+    <div class="col-md-8 col-10">
+      <h5 class="background text-light text-center p-2">Login Section</h5>
+      {% for i in messages %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{i}}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endfor %}
+      <form method="post" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label"
+            >User Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            placeholder="Enter user name"
+          />
+          <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </form>
+      <div class="d-flex justify-content-between">
+        <a href="/forget-username/" class="text-decoration none">Forget Password</a>
+        <a href="/signup/" class="text-decoration none">New User? Create a Free Account</a>
+      </div>
+    </div>
+    <div class="col-md-2 col-1"></div>
+  </div>
+</div>
+{% endblock content %}
